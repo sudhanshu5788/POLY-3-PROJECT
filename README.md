@@ -1,4 +1,4 @@
-# zardkat 
+# POLY MODULE 3 PROJECT
 This is project of module 3 poly. In this prject we have created a circuit according to our question needs and also
 deployed that on mubai local network.
 following are the process by which you can also deploy the same.
