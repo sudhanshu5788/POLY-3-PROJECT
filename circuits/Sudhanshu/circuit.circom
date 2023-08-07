@@ -7,19 +7,34 @@ template Sudhanshu () {
     signal input b;
 
     signal x;
-    signal output y;
+    signal y;
+    signal output q;
 
-    component nandGate  = NAND();
+    component andGate  = AND();
     component notGate = NOT();
+    component orGate = OR();
 
-    nandGate.a <== a;
-    nandGate.b <==b;
-    x <== nandGate.out;
-
-    notGate.in <== x;
-    y <== notGate.out;
+    andGate.a <== a;
+    andGate.b <==b;
+    x <== andGate.out;
 
     
+    notGate.in <== b;
+    y <== notGate.out;
+
+    orGate.a <== x;
+    orGate.b <== y;
+    q <== orGate.out;
+
+    
+}
+
+template AND() {
+    signal input a;
+    signal input b;
+    signal output out;
+
+    out <== a*b;
 }
 
 template NOT() {
@@ -29,12 +44,12 @@ template NOT() {
     out <== 1 + in - 2*in;
 }
 
-template NAND() {
+template OR() {
     signal input a;
     signal input b;
     signal output out;
 
-    out <== 1 - a*b;
+    out <== a + b - a*b;
 }
 
 component main = Sudhanshu();
